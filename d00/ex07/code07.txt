@@ -1,0 +1,6 @@
+patch -p a sw.diff
+cp a b
+rm a
+#get a again
+diff a b > mysw.diff
+#compare sw.diff and mysw.diff
