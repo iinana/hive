@@ -1,26 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/10 21:16:34 by injung            #+#    #+#             */
+/*   Updated: 2024/01/10 21:38:55 by injung           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
-void    ft_print_comb(void) 
+
+void	ft_print_comb(void)
 {
-    char    res[3];
-    int i = 0, j, k;
-    while (i <= 7)
-    {
-        res[0] = i+48;
-        j = i+1;
-        while (j <= 8)
-        {
-            res[1] = j+48;
-            k = j+1;
-            while (k <= 9)
-            {
-                res[2] = k+48;
-                write(1, res, 3);
-                if ((i==7) && (j == 8) && (k==9)) return;
-                else write(1, ", ", 2);
-                k++;
-            }
-            j++;
-        }
-        i++;
-    }
+	char	res[3];
+	int		num[3];
+
+	num[0] = 0;
+	while (num[0] <= 7)
+	{
+		res[0] = num[0] + 48;
+		num[1] = num[0] + 1;
+		while (num[1] <= 8)
+		{
+			res[1] = num[1] + 48;
+			num[2] = num[1] + 1;
+			while (num[2] <= 9)
+			{
+				res[2] = num[2] + 48;
+				write(1, res, 3);
+				if (!((num[0] == 7) && (num[1] == 8) && (num[2] == 9)))
+					write(1, ", ", 2);
+				++num[2];
+			}
+			++num[1];
+		}
+		++num[0];
+	}
 }
