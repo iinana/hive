@@ -1,23 +1,26 @@
 #include <unistd.h>
-
-void ft_print_comb(void) {
-    char link[2] = ", ";
-    char chari, charj, chark;
-
-    for (int i = 0; i <= 7; i++) {
-        chari = i+48;
-        for (int j = (i+1); j  <= 8; j++) {
-            charj = j + 48; 
-            for (int k = (j+1); k <= 9; k++) {
-                chark = k + 48;
-
-                write(1, &chari, 1);
-                write(1, &charj, 1);
-                write(1, &chark, 1);
-
+void ft_print_comb(void) 
+{
+    char res[3];
+    int i = 0, j, k;
+    while (i <= 7) 
+    {
+        res[0] = i+48;
+        j = i+1;
+        while (j <= 8) 
+        {
+            res[1] = j+48;
+            k = j+1;
+            while (k <= 9) 
+            {
+                res[2] = k+48;
+                write(1, res, 3);
                 if ((i==7) && (j == 8) && (k==9)) return;
-                else write(1, link, 2);
+                else write(1, ", ", 2);
+                k++;
             }
+            j++;
         }
+        i++;
     }
 }
