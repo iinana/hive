@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 15:29:02 by injung            #+#    #+#             */
-/*   Updated: 2024/01/11 15:29:05 by injung           ###   ########.fr       */
+/*   Created: 2024/01/11 15:44:54 by injung            #+#    #+#             */
+/*   Updated: 2024/01/11 15:49:40 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+void	ft_print_reverse_alphabet(void)
 {
-	while (*str != '\0')
+	char	c;
+
+	c = 'z';
+	while (c >= 'a')
 	{
-		write(1, str, 1);
-		str++;
+		write(1, &c, 1);
+		c--;
 	}
+}
+
+int main() {
+	ft_print_reverse_alphabet();
 }

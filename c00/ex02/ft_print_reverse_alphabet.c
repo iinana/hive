@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
+/*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 21:05:11 by injung            #+#    #+#             */
-/*   Updated: 2024/01/10 21:07:33 by injung           ###   ########.fr       */
+/*   Created: 2024/01/11 15:44:54 by injung            #+#    #+#             */
+/*   Updated: 2024/01/11 20:05:18 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_reverse_print_alphabet(void)
+void	ft_print_reverse_alphabet(void)
 {
 	char	c;
 
 	c = 'z';
-	while (c > 96)
+	while (c >= 'a')
 	{
 		write(1, &c, 1);
 		c--;
