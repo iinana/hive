@@ -6,9 +6,11 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 12:09:31 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 12:38:24 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/13 12:38:41 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 int	is_alphabet(char c)
 {
@@ -47,4 +49,10 @@ char	*ft_strcapitalize(char *str)
 		idx++;
 	}
 	return (str);
+}
+
+int main(void)
+{
+	char c[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	printf("%s\n%s", ft_strcapitalize(c), c);
 }
