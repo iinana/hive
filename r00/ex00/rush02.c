@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   rush02.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 15:44:54 by injung            #+#    #+#             */
-/*   Updated: 2024/01/11 20:05:18 by injung           ###   ########.fr       */
+/*   Created: 2024/01/13 11:05:34 by injung            #+#    #+#             */
+/*   Updated: 2024/01/13 11:11:11 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+int	ft_putchar(int character);
 
-void	ft_print_reverse_alphabet(void)
+void	rush(int a, int b)
 {
-	char	c;
+	int		x;
+	int		y;
 
-	c = 'z';
-	while (c >= 'a')
+	y = 1;
+	while (y <= b)
 	{
-		write(1, &c, 1);
-		c--;
+		x = 1;
+		while (x <= a)
+		{
+			if ((y == 1) && ((x == 1) || (x == a)))
+				ft_putchar('A');
+			else if ((y == b) && ((x == 1) || (x == a)))
+				ft_putchar('C');
+			else if ((x == 1) || (x == a) || (y == 1) || (y == b))
+				ft_putchar('B');
+			else
+				ft_putchar(' ');
+			x++;
+		}
+		ft_putchar('\n');
+		y++;
 	}
 }
