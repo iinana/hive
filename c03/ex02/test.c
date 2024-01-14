@@ -6,29 +6,37 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:08:54 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 17:14:17 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/14 13:27:57 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
 char	*ft_strcat(char *dest, char *src)
 {
-	int		idx;
+	int		i;
+	int		j;
 
-	idx = 0;
-	while (src[idx])
+	i = 0;
+	while (dest[i])
+		i++;
+	j = 0;
+	while (src[j])
 	{
-		dest[idx] = src[idx];
-		idx++;
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	dest[idx] = 0;
+	dest[i] = 0;
 	return (dest);
 }
 
 int	main(void)
 {
-	char str1[10];
-	char str2[] = "apple";
-	printf("%s %s", ft_strcat(str1, str2), str2);
+	char s1[10] = "abc";
+	char s2[10] = "def";
+	printf("%s %s\n", ft_strcat(s1, s2), s1);
+	char s3[10] = "abc";
+	printf("%s %s\n", strcat(s3, s2), s3);
 }

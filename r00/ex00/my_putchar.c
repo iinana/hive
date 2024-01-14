@@ -6,13 +6,17 @@
 /*   By: injung <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 09:40:56 by injung            #+#    #+#             */
-/*   Updated: 2024/01/14 12:21:54 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/13 10:33:13 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int	ft_putchar(int character)
 {
+	char	c;
+
+	c = (char)character;
 	write(1, &c, 1);
+	return (character);
 }

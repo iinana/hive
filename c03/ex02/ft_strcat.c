@@ -6,20 +6,25 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:08:54 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 17:14:40 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/14 13:25:14 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcat(char *dest, char *src)
 {
-	int		idx;
+	int		i;
+	int		j;
 
-	idx = 0;
-	while (src[idx])
+	i = 0;
+	while (dest[i])
+		i++;
+	j = 0;
+	while (src[j])
 	{
-		dest[idx] = src[idx];
-		idx++;
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	dest[idx] = 0;
+	dest[i] = 0;
 	return (dest);
 }

@@ -6,7 +6,7 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:56:18 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 16:59:40 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/14 13:23:12 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,9 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 			return (-1);
 		i++;
 	}
+	if (*s1 != 0)
+		return (1);
+	if (*s2 != 0)
+		return (-1);
 	return (0);
 }

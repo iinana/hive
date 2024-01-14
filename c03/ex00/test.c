@@ -6,10 +6,11 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:40:43 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 16:55:09 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/14 10:33:54 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include <stdio.h>
 
 int	ft_strcmp(char *s1, char *s2)
@@ -36,6 +37,9 @@ int main(void)
 	char str2[] = "banana";
 
 	printf("%s, %s, %d\n", str1, str2, ft_strcmp(str1, str2));
+	printf("%d\n", strcmp(str1, str2));
 	printf("%d\n", ft_strcmp(str1, "apple"));
+	printf("%d\n", strcmp(str1, "apple"));
 	printf("%s, %s, %d\n", str1, "appla", ft_strcmp(str1, "appla"));
+	printf("%d\n", strcmp(str1, "appla"));
 }

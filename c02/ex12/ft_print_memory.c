@@ -6,23 +6,18 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:12:45 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 20:47:29 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/14 15:28:43 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/* 문자열을 16자씩 나누어서 출력하는데,
-3개의 칼럼으로 나눠서
-메모리주소 | 아스키코드 | 해당문자
-출력하고 각각은 스페이스로 구분하고, 아스키코드는 두 개 출력 후 스페이스 출력 반복, nonprintable문자는 마침표(.)로 표시... */
 
 #include <unistd.h>
 
 char	return_hex(int n)
 {
-	char	hex[17];
-
-	hex = "0123456789abcdef";
-	return (hex[n]);
+	if (n <= 9)
+		return (n + '0');
+	else
+		return (n + 87);
 }
 
 void	print_address(unsigned long long int add)
@@ -58,28 +53,48 @@ void	print_ascii(char *str, int len)
 	{
 		num = (int)str[i];
 		c = return_hex(num / 16);
+		write(1, &c, 1);
+		c = return_hex(num % 16);
+		write(1, &c, 1);
+		if ((i % 2) == 1)
+			write(1, " ", 1);
+		i++;
+	}
+}
 
+void	print_char(char *str, int len)
+{
+	int		i;
 
+	i = 0;
+	while (i < len)
+	{
+		if ((str[i] < 32) || (str[i] > 126))
+			write(1, ".", 1);
+		else
+			write(1, &str[i], 1);
+		i++;
+	}
+}
 
-	
-void	print_char();
-
-void	*ft_print_memeory(void *addr, unsigned int size)
+void	*ft_print_memory(void *addr, unsigned int size)
 {
 	char	*str;
 	int		i;
 
 	if (size == 0)
-		return ;
+		return (addr);
 	str = (char *)addr;
 	i = 0;
 	while (i < size)
 	{
-		print_address((unsigned long long)str);
+		print_address((unsigned long long)str[i]);
 		write(1, ": ", 2);
-		print_ascii(str, size - i);
+		print_ascii(&str[i], 16);
 		write(1, " ", 1);
-		print_char(str[1]);
+		print_char(&str[i], 16);
 		write(1, "\n", 1);
+		i += 16;
 	}
+	return (addr);
 }

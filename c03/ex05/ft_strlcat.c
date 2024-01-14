@@ -6,13 +6,13 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 18:02:07 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 19:16:55 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/14 14:35:10 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	check_size(char *str)
+unsigned long	check_size(char *str)
 {
-	int		size;
+	unsigned long		size;
 
 	size = 0;
 	while (str[size])
@@ -20,11 +20,11 @@ int	check_size(char *str)
 	return (size);
 }
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+unsigned long	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int		dsize;
-	int		ssize;
-	int		i;
+	unsigned long		dsize;
+	unsigned long		ssize;
+	int					i;
 
 	dsize = check_size(dest);
 	ssize = check_size(src);

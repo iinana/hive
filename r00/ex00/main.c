@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 09:41:44 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 10:45:37 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/14 12:23:13 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@ void	rush(int a, int b);
 
 int	main(void)
 {
-	rush(5, 3);
-	write(1, "\n", 1);
-	rush(7, 10);
-	write(1, "\n", 1);
-	rush(1, 1);
-	write(1, "\n", 1);
-	rush(1, 4);
-	write(1, "\n", 1);
-	rush(4, 1);
-	write(1, "\n", 1);
+	rush(5, 5);
+	return (0);
 }
