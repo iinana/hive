@@ -6,7 +6,7 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:02 by injung            #+#    #+#             */
-/*   Updated: 2024/01/14 13:45:36 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/14 17:38:28 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	while (dest[i])
 		i++;
 	j = 0;
-	while (j < nb)
+	while (src[i] && (j < nb))
 	{
 		dest[i] = src[j];
 		i++;
