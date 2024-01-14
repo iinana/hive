@@ -6,19 +6,19 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:56:18 by injung            #+#    #+#             */
-/*   Updated: 2024/01/14 10:54:15 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/14 16:57:54 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	int		i;
 
 	i = 0;
-	while (i < n)
+	while (s1[i] && s2[i] && (i < n))
 	{
 		if (s1[i] > s2[i])
 			return (1);
