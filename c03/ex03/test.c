@@ -6,7 +6,7 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:02 by injung            #+#    #+#             */
-/*   Updated: 2024/01/14 14:05:33 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/15 18:21:01 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int		i;
-	int		j;
+	unsigned int		i;
+	unsigned int		j;
 
 	i = 0;
 	while (dest[i])
 		i++;
 	j = 0;
-	while (j < nb)
+	while (src[j] && (j < nb))
 	{
 		dest[i] = src[j];
 		i++;
@@ -34,9 +34,8 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 
 int main(void)
 {
-	char str1[10] = "abc";
-	char str2[10] = "def";
-	printf("%s %s\n", ft_strncat(str1, str2, 5), str1);
-	char str3[10] = "abc";
-	printf("%s %s\n", strncat(str3, str2, 5), str3);
+	char str1[10] = "ab";
+	char str2[10] = "cdef";
+	
+	printf("%s %s", ft_strncat(str1, str2, 4), str1);
 }

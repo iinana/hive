@@ -6,11 +6,12 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:30:45 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 17:59:58 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/15 18:42:13 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
 char	*ft_strstr(char *str, char *to_find)
 {
@@ -38,10 +39,10 @@ char	*ft_strstr(char *str, char *to_find)
 	return (0);
 }
 
-int	main(void)
+int main(void)
 {
-	printf("apple, ap, %s\n", ft_strstr("apple", "ap"));
-	printf("apple, e, %s\n", ft_strstr("apple", "e"));
-	printf("apple, , %s\n", ft_strstr("apple", ""));
-	printf("apple, apply, %s\n", ft_strstr("apple", "apply"));
+	char s[] = "I'm super struggle. but I will struggle more after this. struggle";
+	printf("%s %s\n", ft_strstr(s, "ggle "), strstr(s, "ggle "));
+	printf("%s %s\n", ft_strstr(s, "happy"), strstr(s, "happy"));
+	printf("%s %s\n", ft_strstr(s, "struggli"), strstr(s, "struggli"));
 }

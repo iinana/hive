@@ -6,7 +6,7 @@
 /*   By: injung <injung@studnet.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 13:03:04 by injung            #+#    #+#             */
-/*   Updated: 2024/01/12 13:05:46 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/15 12:26:42 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_str_is_numeric(char *str)
 	idx = 0;
 	while (str[idx] != 0)
 	{
-		if ((str[idx] <= '0') && (str[idx] >= '9'))
+		if ((str[idx] < '0') || (str[idx] > '9'))
 			return (0);
 		idx++;
 	}

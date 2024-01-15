@@ -6,17 +6,19 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 12:09:31 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 12:38:41 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/15 14:08:09 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	is_alphabet(char c)
+int	is_a_or_d(char c)
 {
 	if ((c >= 'A') && (c <= 'Z'))
 		return (1);
 	if ((c >= 'a') && (c <= 'z'))
+		return (1);
+	if ((c >= '0') && (c <= '9'))
 		return (1);
 	return (0);
 }
@@ -44,15 +46,15 @@ char	*ft_strcapitalize(char *str)
 			if (str[idx] == 0)
 				return (str);
 		}
-		if (is_alphabet(str[idx - 1]) == 0)
+		if (is_a_or_d(str[idx - 1]) == 0)
 			str[idx] -= 32;
 		idx++;
 	}
 	return (str);
 }
 
-int main(void)
+int main()
 {
-	char c[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
-	printf("%s\n%s", ft_strcapitalize(c), c);
+	char s1[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	printf("%s, %s", ft_strcapitalize(s1), s1);
 }

@@ -6,7 +6,7 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:12:45 by injung            #+#    #+#             */
-/*   Updated: 2024/01/14 15:28:43 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/15 14:48:23 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ void	print_char(char *str, int len)
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
-	char	*str;
-	int		i;
+	char			*str;
+	unsigned int	i;
 
 	if (size == 0)
 		return (addr);

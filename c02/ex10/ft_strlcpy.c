@@ -6,27 +6,25 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:00:59 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 14:45:20 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/15 14:46:19 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int		idx;
+	unsigned int		idx;
+	unsigned int		len;
 
+	len = 0;
+	while (src[len])
+		len++;
+	if (size == 0)
+		return (len);
 	idx = 0;
 	while (idx < (size - 1))
 	{
 		dest[idx] = src[idx];
 		idx++;
 	}
-	dest[idx] = 0;
-	if (size == 0)
-	{
-		idx = 0;
-		while (src[idx] != 0)
-			idx++;
-		return (idx);
-	}
-	return (size);
+	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 18:02:07 by injung            #+#    #+#             */
-/*   Updated: 2024/01/14 14:36:56 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/15 19:28:10 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ unsigned long	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned long		dsize;
 	unsigned long		ssize;
-	int					i;
+	unsigned long		i;
 
 	dsize = check_size(dest);
 	ssize = check_size(src);
-	if (dsize > size)
+	if ((size == 0) || (dsize >= size))
 		return (size + ssize);
 	i = dsize;
 	while (*src && (i < (size - 1)))
@@ -41,20 +41,17 @@ unsigned long	ft_strlcat(char *dest, char *src, unsigned int size)
 		i++;
 	}
 	dest[i] = 0;
-	i++;
 	return (dsize + ssize);
 }
 
 int main(void)
 {
-	char str1[10] = "ab";
-	char str2[10] = "cdef";
+	char dest[20] = "pouic pouic";
+	char src[] = "p";
+	unsigned int size = 5;
+	unsigned int result;
 
-	printf("%lu %s\n", ft_strlcat(str1, str2, 5), str1);
-	char str3[10] = "ab";
-	printf("%lu %s\n", strlcat(str3, str2, 5), str3);
-
-	char str4[10] = "abc";
-	printf("%lu %s\n", ft_strlcat(str4, str2, 2), str4);
-	printf("%lu %s\n", strlcat(str4, str2, 2), str4);
+	printf("-----\ndest = %s\nsrc = %s\nnb = %d\n\n", dest, src, size);
+	result = strlcat(dest, src, size);
+	printf("dest (cat) = %s\nresult = %d\n-----\n", dest, result);
 }

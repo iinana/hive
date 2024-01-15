@@ -6,11 +6,11 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:57:26 by injung            #+#    #+#             */
-/*   Updated: 2024/01/12 20:57:29 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/15 12:58:21 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowercase(char *str)
+char	*ft_strlowcase(char *str)
 {
 	char	*init;
 

@@ -6,13 +6,13 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 18:02:07 by injung            #+#    #+#             */
-/*   Updated: 2024/01/14 14:35:10 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/15 19:30:15 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned long	check_size(char *str)
+unsigned int	check_size(char *str)
 {
-	unsigned long		size;
+	unsigned int		size;
 
 	size = 0;
 	while (str[size])
@@ -20,15 +20,15 @@ unsigned long	check_size(char *str)
 	return (size);
 }
 
-unsigned long	ft_strlcat(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned long		dsize;
-	unsigned long		ssize;
-	int					i;
+	unsigned int		dsize;
+	unsigned int		ssize;
+	unsigned int		i;
 
 	dsize = check_size(dest);
 	ssize = check_size(src);
-	if (dsize > size)
+	if ((size == 0) || (dsize >= size))
 		return (size + ssize);
 	i = dsize;
 	while (*src && (i < (size - 1)))
@@ -38,6 +38,5 @@ unsigned long	ft_strlcat(char *dest, char *src, unsigned int size)
 		i++;
 	}
 	dest[i] = 0;
-	i++;
 	return (dsize + ssize);
 }

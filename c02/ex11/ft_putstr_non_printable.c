@@ -6,45 +6,38 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 14:37:38 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 15:43:37 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/15 20:24:27 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	print_hex(int n)
+char	return_hex(char n)
 {
-	char	c;
-	int		temp;
-
-	temp = n / 16;
-	if (temp > 9)
-		c = temp + 55;
+	if (n <= 9)
+		return (n + '0');
 	else
-		c = temp + '0';
-	write(1, &c, 1);
-	temp = n % 16;
-	if (temp > 9)
-		c = temp + 87;
-	else
-		c = temp + '0';
-	write(1, &c, 1);
+		return (n + 87);
 }
 
 void	ft_putstr_non_printable(char *str)
 {
-	int		i;
+	char			c;
+	unsigned char	*temp;
 
-	while (*str != 0)
+	temp = (unsigned char *)str;
+	while (*temp != 0)
 	{
-		if ((*str < 32) || (*str > 126))
+		if ((*temp < 32) || (*temp > 126))
 		{
-			i = (int)(*str);
 			write(1, "\\", 1);
-			print_hex(i);
+			c = return_hex(*temp / 16);
+			write(1, &c, 1);
+			c = return_hex(*temp % 16);
+			write(1, &c, 1);
 		}
 		else
-			write(1, str, 1);
-		str++;
+			write(1, temp, 1);
+		temp++;
 	}
 }
