@@ -6,7 +6,7 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:00:59 by injung            #+#    #+#             */
-/*   Updated: 2024/01/15 14:46:19 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/16 14:30:06 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		dest[idx] = src[idx];
 		idx++;
 	}
+	dest[idx] = 0;
 	return (len);
 }

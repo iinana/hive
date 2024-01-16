@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:56:12 by injung            #+#    #+#             */
-/*   Updated: 2024/01/13 15:39:57 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/16 14:14:24 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ int	ft_str_is_printable(char *str)
 {
 	while (*str != 0)
 	{
-		if ((*str < 33) || (*str > 127))
+		if ((*str < 32) || (*str > 127))
 			return (0);
 		str++;
 	}

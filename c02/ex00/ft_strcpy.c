@@ -23,3 +23,11 @@ char	*ft_strcpy(char *dest, char *src)
 	dest[idx] = 0;
 	return (dest);
 }
+
+int main(void)
+{
+    char s1[10];
+    char s2[10] = "Abc";
+    char *s = ft_strcpy(dest, src);
+    return (0);
+}
