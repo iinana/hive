@@ -6,11 +6,40 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:58:53 by injung            #+#    #+#             */
-/*   Updated: 2024/01/16 15:54:56 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/16 18:40:05 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+
+int	is_white_space(char c)
+{
+	if (c == ' ' | c == '\t' | c == '\n')
+		return (1);
+	if (c == '\f' | c == '\v' | c == '\r')
+		return (1);
+	else
+		return (0);
+}
+
+int	find_sign(char **str)
+{
+	int		count;
+
+	count = 0;
+	while (**str && ((**str < '0') || (**str > '9')))
+	{
+		if (**str == '-')
+			count++;
+		else if (**str != '+')
+			return (0);
+		++(*str);
+	}
+	if (count % 2)
+		return (-1);
+	else
+		return (1);
+}
 
 int	find_num(int pow, char *str)
 {
@@ -33,13 +62,9 @@ int	ft_atoi(char *str)
 	int		res;
 	int		pow;
 
-	sign = 1;
-	while (*str && ((*str < '0') || (*str > '9')))
-	{
-		if (*str == '-')
-			sign = -1;
+	while (is_white_space(*str))
 		str++;
-	}
+	sign = find_sign(&str);
 	pow = 1;
 	len = 0;
 	while (str[len] && ((str[len] >= '0') && (str[len] <= '9')))
@@ -54,7 +79,7 @@ int	ft_atoi(char *str)
 /*
 int	main(void)
 {
-	char s1[] = " ---+--+1234ab567";
+	char s1[] = " \t--+--+1234ab567";
 	printf("%s: %d\n", s1, ft_atoi(s1));
 }
 */

@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:01:41 by injung            #+#    #+#             */
-/*   Updated: 2024/01/16 17:51:35 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/16 18:43:42 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 }
 
-
+/*
 int main(void)
 {
 	ft_putnbr_base(-189, "0123456789");
@@ -69,7 +69,7 @@ int main(void)
 	write(1, "\n", 1);
 	ft_putnbr_base(-189, "0123456789ABCDEF");
 	write(1, "\n", 1);
-	ft_putnbr_base(-189, "poneyvif");
+	ft_putnbr_base(175, "poneyvif");
 	ft_putnbr_base(-189, "01234563789");
 }
-
+*/

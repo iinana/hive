@@ -6,7 +6,7 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 13:00:59 by injung            #+#    #+#             */
-/*   Updated: 2024/01/16 14:30:06 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/16 21:31:03 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	if (size == 0)
 		return (len);
 	idx = 0;
-	while (idx < (size - 1))
+	while (src[idx] && (idx < (size - 1)))
 	{
 		dest[idx] = src[idx];
 		idx++;

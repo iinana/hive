@@ -6,7 +6,7 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:12:45 by injung            #+#    #+#             */
-/*   Updated: 2024/01/15 14:48:23 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/16 21:37:48 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ void	print_address(unsigned long long int add)
 	}
 }
 
-void	print_ascii(char *str, int len)
+void	print_ascii(unsigned char *str, int len)
 {
-	int		i;
-	int		num;
-	char	c;
+	int				i;
+	int				num;
+	unsigned char	c;
 
 	i = 0;
 	while (i < len)
 	{
-		num = (int)str[i];
+		num = (unsigned int)str[i];
 		c = return_hex(num / 16);
 		write(1, &c, 1);
 		c = return_hex(num % 16);
@@ -62,7 +62,7 @@ void	print_ascii(char *str, int len)
 	}
 }
 
-void	print_char(char *str, int len)
+void	print_char(unsigned char *str, int len)
 {
 	int		i;
 
@@ -79,12 +79,12 @@ void	print_char(char *str, int len)
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
-	char			*str;
+	unsigned char	*str;
 	unsigned int	i;
 
 	if (size == 0)
 		return (addr);
-	str = (char *)addr;
+	str = (unsigned char *)addr;
 	i = 0;
 	while (i < size)
 	{
