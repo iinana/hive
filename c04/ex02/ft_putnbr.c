@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:42:12 by injung            #+#    #+#             */
-/*   Updated: 2024/01/16 11:57:27 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/17 20:24:10 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	ft_putnbr(int nb)
 	}
 }
 
-/*int	main(void)
+/*
+int	main(void)
 {
 	write(1, "42: ", 4);
 	ft_putnbr(42);

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 11:38:42 by injung            #+#    #+#             */
-/*   Updated: 2024/01/17 20:22:44 by injung           ###   ########.fr       */
+/*   Created: 2024/01/17 10:43:05 by injung            #+#    #+#             */
+/*   Updated: 2024/01/17 11:25:17 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	ft_fibonacci(int index)
 {
-	while (*str)
-		write(1, str++, 1);
+	if (index < 0)
+		return (-1);
+	if (index <= 1)
+		return (index);
+	return (ft_fibonacci(index - 2) + ft_fibonacci(index - 1));
 }
 
 /*
+#include <stdio.h>
 int	main(void)
 {
-	char s1[] = "apple";
-	
-	ft_putstr(s1);
-}*/
+	printf("10 => %d\n", ft_fibonacci(10));
+	printf("45 => %d\n", ft_fibonacci(45));
+	printf("2  => %d\n", ft_fibonacci(2));
+}
+*/

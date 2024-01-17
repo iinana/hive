@@ -6,7 +6,7 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 12:09:31 by injung            #+#    #+#             */
-/*   Updated: 2024/01/16 21:04:56 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/17 14:52:19 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	is_lowcase(char c)
 
 int	is_upcase(char c)
 {
-	if ((c >= 'A') && (c <= 'z'))
+	if ((c >= 'A') && (c <= 'Z'))
 		return (1);
 	else
 		return (0);

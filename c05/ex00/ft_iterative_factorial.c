@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 11:38:42 by injung            #+#    #+#             */
-/*   Updated: 2024/01/17 20:22:44 by injung           ###   ########.fr       */
+/*   Created: 2024/01/17 08:56:55 by injung            #+#    #+#             */
+/*   Updated: 2024/01/17 09:47:52 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	ft_iterative_factorial(int nb)
 {
-	while (*str)
-		write(1, str++, 1);
+	int		res;
+
+	if (nb == 0)
+		return (1);
+	if (nb < 0)
+		return (0);
+	res = 1;
+	while (nb > 0)
+	{
+		res *= nb;
+		nb--;
+	}
+	return (res);
 }
 
 /*
-int	main(void)
+#include <stdio.h>
+int main(void)
 {
-	char s1[] = "apple";
-	
-	ft_putstr(s1);
-}*/
+	printf("10 => %d\n", ft_iterative_factorial(10));
+	printf("0  => %d\n", ft_iterative_factorial(0));
+	printf("-1 => %d\n", ft_iterative_factorial(-1));
+	printf("5  => %d\n", ft_iterative_factorial(5));
+}
+*/

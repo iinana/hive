@@ -6,7 +6,7 @@
 /*   By: injung <injung@hive.student.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:12:45 by injung            #+#    #+#             */
-/*   Updated: 2024/01/16 21:39:26 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/17 13:32:55 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,13 @@ void	print_ascii(unsigned char *str, int len)
 			write(1, " ", 1);
 		i++;
 	}
+	while (i < 16)
+	{
+		write(1, "  ", 2);
+		if ((i % 2) == 1)
+			write(1, " ", 1);
+		i++;
+	}
 }
 
 void	print_char(unsigned char *str, int len)
@@ -81,6 +88,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned char	*str;
 	unsigned int	i;
+	unsigned int	n;
 
 	if (size == 0)
 		return (addr);
@@ -88,18 +96,22 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	i = 0;
 	while (i < size)
 	{
+		if ((size - i) >= 16)
+			n = 16;
+		else
+			n = size - i;
 		print_address((unsigned long long)str[i]);
 		write(1, ": ", 2);
-		print_ascii(&str[i], 16);
+		print_ascii(&str[i], n);
 		write(1, " ", 1);
-		print_char(&str[i], 16);
+		print_char(&str[i], n);
 		write(1, "\n", 1);
-		i += 16;
+		i += n;
 	}
 	return (addr);
 }
 
 int main(void)
 {
-	ft_print_memory("Bonjour les aminches.\n\nc. est fo", 32);
+	ft_print_memory("Bonjour les aminches...c. est f", 30);
 }
