@@ -6,50 +6,59 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:27:53 by injung            #+#    #+#             */
-/*   Updated: 2024/01/17 21:06:18 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/17 22:43:07 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int check(char *res, int idx, char i)
+int	check(char *res, int idx, char cur)
 {
 	char	pre;
+	int		j;
 
 	if (idx < 0)
 		return (1);
-	pre = res[idx];
-	if ((i == pre) || (i == (pre - 1)) || (i == (pre + 1)))
-		return (0);
-	while (idx > 0)
+	j = 0;
+	while (j < idx)
 	{
-		idx--;
-		pre = res[idx];
-		if (i == pre)
+		pre = res[j];
+		if (cur == pre)
 			return (0);
+		if ((cur - pre) == (idx - j))
+			return (0);
+		if ((cur - pre) == (j - idx))
+			return (0);
+		j++;
 	}
 	return (1);
-}	
+}
 
-void queens_puzzle(char *res, int idx, int *count)
+void	queens_puzzle(char *res, int idx, int *count)
 {
 	char	i;
- 
+	int		flag;
+
 	if (idx == 10)
+	{
 		write(1, res, 12);
 		++(*count);
 		return ;
 	}
+	flag = 0;
 	i = '0';
 	while (i <= '9')
 	{
-		if (check(res, idx - 1, i) == 1)
+		if (check(res, idx, i) == 1)
 		{
+			flag = 1;
 			res[idx] = i;
 			queens_puzzle(res, idx + 1, count);
 		}
 		i++;
 	}
+	if (flag == 0)
+		return ;
 }
 
 int	ft_ten_queens_puzzle(void)
@@ -60,12 +69,14 @@ int	ft_ten_queens_puzzle(void)
 	res[10] = '\n';
 	res[11] = 0;
 	count = 0;
-	queens_puzzle(res, 0,  &count);
+	queens_puzzle(res, 0, &count);
 	return (count);
 }
 
+/*
 #include <stdio.h>
 int	main(void)
 {
 	printf("count = %d\n", ft_ten_queens_puzzle());
 }
+*/
