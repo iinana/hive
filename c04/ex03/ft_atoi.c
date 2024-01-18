@@ -6,11 +6,9 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 11:58:53 by injung            #+#    #+#             */
-/*   Updated: 2024/01/16 18:40:05 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/18 14:10:08 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	is_white_space(char c)
 {
@@ -41,7 +39,7 @@ int	find_sign(char **str)
 		return (1);
 }
 
-int	find_num(int pow, char *str)
+int	find_num(long int pow, char *str)
 {
 	int		res;
 
@@ -57,10 +55,10 @@ int	find_num(int pow, char *str)
 
 int	ft_atoi(char *str)
 {
-	int		len;
-	int		sign;
-	int		res;
-	int		pow;
+	int			len;
+	int			sign;
+	int			res;
+	long int	pow;
 
 	while (is_white_space(*str))
 		str++;
@@ -77,9 +75,12 @@ int	ft_atoi(char *str)
 }
 
 /*
+#include <stdio.h>
 int	main(void)
 {
 	char s1[] = " \t--+--+1234ab567";
 	printf("%s: %d\n", s1, ft_atoi(s1));
+	printf("%s: %d\n", "1325632167", ft_atoi("1325632167"));
+	printf("%s: %d\n", "-2147483648", ft_atoi("-2147483648"));
 }
 */

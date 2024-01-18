@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:01:41 by injung            #+#    #+#             */
-/*   Updated: 2024/01/16 18:43:42 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/18 16:14:50 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ int	check_conditions(char *base)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int		bsize;
-	int		pow;
+	int				bsize;
+	long int		pow;
+	unsigned int	n;
 
 	bsize = check_conditions(base);
 	if (bsize <= 1)
@@ -49,13 +50,14 @@ void	ft_putnbr_base(int nbr, char *base)
 		write(1, "-", 1);
 		nbr = -nbr;
 	}
+	n = (unsigned int)nbr;
 	pow = 1;
-	while (nbr / pow >= bsize)
+	while (n / pow >= bsize)
 		pow *= bsize;
 	while (pow > 0)
 	{
-		write(1, &base[nbr / pow], 1);
-		nbr = nbr % pow;
+		write(1, &base[n / pow], 1);
+		n = n % pow;
 		pow /= bsize;
 	}
 }
@@ -63,9 +65,9 @@ void	ft_putnbr_base(int nbr, char *base)
 /*
 int main(void)
 {
-	ft_putnbr_base(-189, "0123456789");
+	ft_putnbr_base(-2147483648, "0123456789");
 	write(1, "\n", 1);
-	ft_putnbr_base(-189, "01");
+	ft_putnbr_base(-2147483648, "01");
 	write(1, "\n", 1);
 	ft_putnbr_base(-189, "0123456789ABCDEF");
 	write(1, "\n", 1);
