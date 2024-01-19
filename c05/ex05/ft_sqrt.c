@@ -6,22 +6,27 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:25:59 by injung            #+#    #+#             */
-/*   Updated: 2024/01/17 12:48:56 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/19 20:25:48 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_sqrt(int nb)
 {
-	int	res;
+	int				res;
+	long long int	temp;
 
 	if (nb < 0)
 		return (0);
 	if (nb <= 1)
 		return (nb);
+	temp = 1;
 	res = 1;
 	while (res < nb)
 	{
-		if ((nb % res == 0) && (res == (nb / res)))
+		temp = res * res;
+		if (temp > nb)
+			return (0);
+		if (temp == nb)
 			return (res);
 		res++;
 	}
@@ -33,11 +38,11 @@ int	ft_sqrt(int nb)
 #include <math.h>
 int main(void)
 {
-	printf("256 => %d %.2f\n", ft_sqrt(256), sqrt(256));
-	printf("-38 => %d %.2f\n", ft_sqrt(-38), sqrt(-38));
-	printf("2   => %d %.2f\n", ft_sqrt(2), sqrt(2));
-	printf("64  => %d %.2f\n", ft_sqrt(64), sqrt(64));
-	printf("169 => %d %.2f\n", ft_sqrt(169), sqrt(169));
-	printf("0   => %d %.2f", ft_sqrt(0), sqrt(0));
+	printf("-2782 => %d %.2f\n", ft_sqrt(-2782), sqrt(-2782));
+	printf("33304441 => %d %.2f\n", ft_sqrt(33304441), sqrt(33304441));
+	printf("1746868161 => %d %.2f\n", ft_sqrt(1746868161), sqrt(1746868161));
+	printf("206755641 => %d %.2f\n", ft_sqrt(206755641), sqrt(206755641));
+	printf("635444571 => %d %.2f\n", ft_sqrt(635444571), sqrt(635444571));
+	printf("86787856 => %d %.2f", ft_sqrt(86787856), sqrt(86787856));
 }
 */

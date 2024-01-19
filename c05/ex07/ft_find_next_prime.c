@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:21:17 by injung            #+#    #+#             */
-/*   Updated: 2024/01/17 14:29:54 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/19 20:30:28 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ int	ft_find_next_prime(int nb)
 	if (nb <= 2)
 		return (2);
 	res = nb;
-	while (1)
+	while (nb <= 2147483647)
 	{
 		if (is_prime(res))
 			return (res);
 		res++;
 	}
+	return (0);
 }
 
 /*
@@ -50,6 +51,6 @@ int main(void)
 	printf("3 => %d\n", ft_find_next_prime(3));
 	printf("4 => %d\n", ft_find_next_prime(4));
 	printf("3921 => %d\n", ft_find_next_prime(3921));
-	printf("-3 => %d\n", ft_find_next_prime(-3));
+	printf("2147483647 => %d\n", ft_find_next_prime(2147483647));
 }
 */

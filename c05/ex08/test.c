@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:27:53 by injung            #+#    #+#             */
-/*   Updated: 2024/01/19 20:43:06 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/19 20:43:29 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,10 @@ int	ft_ten_queens_puzzle(void)
 	count = 0;
 	queens_puzzle(res, 0, &count);
 	return (count);
+}
+
+#include <stdio.h>
+int main()
+{
+	printf("count = %d", ft_ten_queens_puzzle());
 }

@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:50:02 by injung            #+#    #+#             */
-/*   Updated: 2024/01/19 11:44:18 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/19 19:22:11 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	ft_atoi_base(char *str, char *base)
 		return (0);
 	while (*str && is_white_space(*str))
 		str++;
+	sign = 0;
 	while (*str && ((*str == '+') || (*str == '-')))
 	{
 		if (*str == '-')
@@ -84,8 +85,7 @@ int	ft_atoi_base(char *str, char *base)
 	}
 	if (sign % 2)
 		return (res * (-1));
-	else
-		return (res);
+	return (res);
 }
 
 /*
@@ -94,7 +94,7 @@ int	main(void)
 {
 	printf("%d\n", ft_atoi_base("  -+-1435i3", "0123456789"));
 	printf("%d\n", ft_atoi_base("10111101", "01"));
-	printf("%d\n", ft_atoi_base("BD", "0123456789ABCDEF"));
+	printf("%d\n", ft_atoi_base("adBD", "0123456789ABCDEF"));
 	printf("%d\n", ft_atoi_base("nfav", "poneyvif"));
 }
 */
