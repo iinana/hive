@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 10:25:43 by injung            #+#    #+#             */
-/*   Updated: 2024/01/20 23:17:04 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/21 13:14:14 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ int	check_col(int *res, int cur_col, int u, int d)
 			count++;
 		}
 	}
+	if (count != d)
+		return (0);
 	return (1);
 }
 
@@ -137,8 +139,8 @@ int	put_row(int cur_col, int cur_row, int *row, int *col,  int **res)
 	if (cur_col >= 4)
 	{
 		if (put_row(0, cur_row + 1, row, col, res))
-			return (0);
-		return (1);
+			return (1);
+		return (0);
 	}
 	i = 1;
 	while (i <= 4)
