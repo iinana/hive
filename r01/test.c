@@ -6,10 +6,11 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 10:25:43 by injung            #+#    #+#             */
-/*   Updated: 2024/01/21 15:53:55 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/21 15:52:21 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -119,7 +120,7 @@ int check(int i, int cur_col, int cur_row, int *res, int l, int r)
 	if (count > r)
 		return (0);
 	return (1);
-}
+}	
 
 int	put_row(int cur_col, int cur_row, int *row, int *col,  int **res)
 {
@@ -177,7 +178,8 @@ int	main(int argc, char **argv)
 		write(1, "2Error\n", 6);
 		return (0);
 	}
-	if (put_row(0, 0, input[0], input[1], &res))
+	i = put_row(0, 0, input[0], input[1], &res);
+	if (1)
 	{
 		i = 0;
 		while (i < 16)
