@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 10:25:43 by injung            #+#    #+#             */
-/*   Updated: 2024/01/21 15:52:21 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/21 17:22:00 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ int check(int i, int cur_col, int cur_row, int *res, int l, int r)
 	int		max;
 	int		count;
 
+	if (cur_col == 0)
+		return (1);
 	j = 0;
 	max = 0;
 	count = 0;
@@ -106,8 +108,8 @@ int check(int i, int cur_col, int cur_row, int *res, int l, int r)
 		count++;
 	if (count > l)
 		return (0);
-	max = 0;
-	count = 0;
+	max = i;
+	count = 1;
 	while (j > 0)
 	{
 		j--;
@@ -120,7 +122,7 @@ int check(int i, int cur_col, int cur_row, int *res, int l, int r)
 	if (count > r)
 		return (0);
 	return (1);
-}	
+}
 
 int	put_row(int cur_col, int cur_row, int *row, int *col,  int **res)
 {
