@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 10:25:43 by injung            #+#    #+#             */
-/*   Updated: 2024/01/21 17:22:29 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/21 18:42:19 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ int	put_row(int cur_col, int cur_row, int *row, int *col,  int **res)
 {
 	int		i;
 
-	if ((cur_row >= 4) && (cur_col >= 4))
+	if ((cur_row == 3) && (cur_col >= 4))
 	{
 		i = 0;
 		while (i < 4)
@@ -176,7 +176,7 @@ int	main(int argc, char **argv)
 	input[1] = make_input(argv + 1);
 	if (!(input[0][0] && input[1][0]))
 	{
-		write(1, "2Error\n", 6);
+		write(1, "Error\n", 6);
 		return (0);
 	}
 	if (put_row(0, 0, input[0], input[1], &res))
@@ -193,7 +193,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		write(1, "3Error\n", 6);
+		write(1, "Error\n", 6);
 		return (0);
 	}
 }
