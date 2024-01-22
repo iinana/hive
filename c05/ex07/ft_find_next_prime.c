@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:21:17 by injung            #+#    #+#             */
-/*   Updated: 2024/01/19 20:30:28 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/22 11:41:14 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_find_next_prime(int nb)
 	if (nb <= 2)
 		return (2);
 	res = nb;
-	while (nb <= 2147483647)
+	while (res <= 2147483647)
 	{
 		if (is_prime(res))
 			return (res);

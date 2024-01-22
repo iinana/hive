@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:27:53 by injung            #+#    #+#             */
-/*   Updated: 2024/01/19 20:43:06 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/22 17:36:29 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	queens_puzzle(char *res, int idx, int *count)
 
 	if (idx == 10)
 	{
-		write(1, res, 12);
+		write(1, res, 11);
 		++(*count);
 		return ;
 	}
@@ -59,10 +59,9 @@ void	queens_puzzle(char *res, int idx, int *count)
 int	ft_ten_queens_puzzle(void)
 {
 	int		count;
-	char	res[12];
+	char	res[11];
 
 	res[10] = '\n';
-	res[11] = 0;
 	count = 0;
 	queens_puzzle(res, 0, &count);
 	return (count);
