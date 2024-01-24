@@ -6,12 +6,17 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 21:38:39 by injung            #+#    #+#             */
-/*   Updated: 2024/01/23 21:38:42 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/24 16:42:59 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FT_POINT_H
+# define FT_POINT_H
 
 typedef struct TPOINT
 {
 	int	x;
 	int	y;
 }	t_point;
+
+#endif

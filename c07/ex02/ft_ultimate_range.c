@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:41:53 by injung            #+#    #+#             */
-/*   Updated: 2024/01/23 16:33:56 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/24 18:45:33 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_ultimate_range(int **range, int min, int max)
 
 	*range = (int *)malloc((max - min) * 4);
 	if (!range)
-		return (0);
+		return (-1);
 	if (min >= max)
 	{
 		*range = 0;

@@ -6,46 +6,14 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 10:39:47 by injung            #+#    #+#             */
-/*   Updated: 2024/01/23 16:42:37 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/24 20:03:30 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	is_white_space(char c)
-{
-	if ((c == '\t') || (c == '\n') || (c == '\v'))
-		return (1);
-	if ((c == '\f') || (c == '\r') || (c == ' '))
-		return (1);
-	return (0);
-}
-
-int	check_conditions(char *base)
-{
-	int		size;
-	char	c;
-	int		i;
-
-	size = 0;
-	while (base[size])
-	{
-		c = base[size];
-		if (is_white_space(c))
-			return (0);
-		if ((c == '+') || (c == '-'))
-			return (0);
-		i = 0;
-		while (base[i] && (i < size))
-		{
-			if (c == base[i])
-				return (0);
-			i++;
-		}
-		size++;
-	}
-	return (size);
-}
+int	is_white_space(char c);
+int	check_conditions(char *base);
 
 int	find_num(char c, char *base)
 {
@@ -74,13 +42,13 @@ char	*ft_itoa_base(long long int n, int bsize, char *base, int sign)
 		len++;
 		temp /= bsize;
 	}
-	if (sign % 2)
-	{
-		res = (char *)malloc(++len + 1);
+	if (n == 0 || (sign % 2 && n != 0))
+		len++;
+	res = (char *)malloc(len + 1);
+	if (!res)
+		return (0);
+	if (sign % 2 && n != 0)
 		res[0] = '-';
-	}
-	else
-		res = (char *)malloc(len + 1);
 	res[len--] = 0;
 	while (len > 0 || (len == 0 && res[len] != '-'))
 	{
@@ -88,6 +56,20 @@ char	*ft_itoa_base(long long int n, int bsize, char *base, int sign)
 		n /= bsize;
 	}
 	return (res);
+}
+
+int	check_sign(char **nbr)
+{
+	int		sign;
+
+	sign = 0;
+	while (**nbr && ((**nbr == '+') || (**nbr == '_')))
+	{
+		if (**nbr == '_')
+			sign++;
+		++(*nbr);
+	}
+	return (sign);
 }
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
@@ -103,29 +85,19 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		return (0);
 	while (*nbr && is_white_space(*nbr))
 		nbr++;
-	sign = 0;
-	while (*nbr && ((*nbr == '+') || (*nbr == '-')))
-	{
-		if (*nbr == '-')
-			sign++;
-		nbr++;
-	}
+	sign = check_sign(&nbr);
 	dec = 0;
 	while (*nbr && find_num(*nbr, base_from) != -1)
 		dec = dec * fsize + find_num(*nbr++, base_from);
-	if (dec == 0)
-		return ("0");
 	return (ft_itoa_base(dec, tsize, base_to, sign));
 }
 
 /*
 #include <stdio.h>
-int main(void)
+int main(int argc, char **argv)
 {
-	char nbr[20] = "101010";
-	char base_from[30] = "01";
-	char base_to[30] = "0123456789ABCDEF";
-
-	printf("%s", ft_convert_base(nbr, base_from, base_to));
+	if (argc != 4)
+		return (0);
+	printf("%s", ft_convert_base(argv[1], argv[2], argv[3]));
 }
 */
