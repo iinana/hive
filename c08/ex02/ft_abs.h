@@ -1,43 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 20:58:44 by injung            #+#    #+#             */
-/*   Updated: 2024/01/23 16:31:54 by injung           ###   ########.fr       */
+/*   Created: 2024/01/23 18:36:37 by injung            #+#    #+#             */
+/*   Updated: 2024/01/23 21:37:42 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strdup(char *src)
-{
-	char	*copy;
-	int		i;
-
-	i = 0;
-	while (src[i])
-		i++;
-	copy = (char *)malloc(i);
-	if (!copy)
-		return (0);
-	i = 0;
-	while (src[i])
-	{
-		copy[i] = src[i];
-		i++;
-	}
-	return (copy);
-}
-
-/*
-#include <stdio.h>
-#include <string.h>
-int	main(void)
-{
-	printf("%s", ft_strdup("hello world\n"));
-	printf("%s", strdup("hello world\n"));
-}
-*/
+#define BIGGER(Value1, Value2) (Value1 > Value2)
+#define ABS(Value) (Value) * BIGGER(Value, -Value)\
+	+ (-(Value)) * BIGGER(-Value, Value)

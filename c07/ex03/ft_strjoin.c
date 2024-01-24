@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 10:09:01 by injung            #+#    #+#             */
-/*   Updated: 2024/01/22 10:38:31 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/23 16:37:14 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	int		i;
 
 	i = 0;
-	len += ft_strlen(sep) * (size - 2);
+	len = ft_strlen(sep) * size;
 	while (i < size)
 		len += ft_strlen(strs[i++]);
 	res = (char *)malloc(4 * (len + 1));
+	if (!res)
+		return (0);
 	res[0] = 0;
 	i = 0;
 	while (i < size)

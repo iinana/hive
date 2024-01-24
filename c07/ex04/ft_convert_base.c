@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 10:39:47 by injung            #+#    #+#             */
-/*   Updated: 2024/01/22 18:07:52 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/23 16:42:37 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,8 +122,8 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 #include <stdio.h>
 int main(void)
 {
-	char nbr[20] = "-2147483648";
-	char base_from[30] = "0123456789";
+	char nbr[20] = "101010";
+	char base_from[30] = "01";
 	char base_to[30] = "0123456789ABCDEF";
 
 	printf("%s", ft_convert_base(nbr, base_from, base_to));

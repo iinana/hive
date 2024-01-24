@@ -5,12 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 18:17:39 by injung            #+#    #+#             */
-/*   Updated: 2024/01/22 22:23:16 by injung           ###   ########.fr       */
+/*   Created: 2024/01/23 10:20:01 by injung            #+#    #+#             */
+/*   Updated: 2024/01/23 18:14:41 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
+int	is_charset(char c, char *charset)
+{
+	if (!(*charset))
+		return (0);
+	while (*charset)
+	{
+		if (c == *charset)
+			return (1);
+		charset++;
+	}
+	return (0);
+}
 
 int	ft_strlen(char *str)
 {
@@ -22,76 +35,75 @@ int	ft_strlen(char *str)
 	return (len);
 }
 
-char	*make_elem(char **str)
+void	ft_strcpy(char *des, char *src)
+{
+	while (*src)
+	{
+		*des = *src;
+		des++;
+		src++;
+	}
+}
+
+char	*create_string(char *str, char *charset)
 {
 	int		len;
+	char	*res;
 	int		i;
-	char	*elem;
 
 	len = 0;
-	while ((*str)[len] != 0 && (*str)[len] != -1)
+	while (str[len] && !(is_charset(str[len], charset)))
 		len++;
-	elem = (char *)malloc(len + 1);
+	res = (char *)malloc((len + 1) * sizeof(char));
 	i = 0;
 	while (i < len)
 	{
-		elem[i] = (*str)[i];
+		res[i] = str[i];
 		i++;
-	}
-	elem[i] = 0;
-	return (elem);
-}
-
-void	split_point(char **str, char *charset)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while ((*str)[i])
-	{
-		j = 0;
-		while (charset[j])
-		{
-			if ((*str)[i] == charset[j])
-			{
-				(*str)[i] = -1;
-				break ;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-char **ft_split(char *str, char *charset)
-{
-	int		i;
-	char	**res;
-	int		len;
-
-	len = ft_strlen(str);
-	res = (char **)malloc((len * 2 + 1) * 4);
-	split_point(&str, charset);
-	i = 0;
-	while (*str)
-	{
-		if (*str != -1)
-			res[i++] = make_elem(&str);
-		str++;
 	}
 	res[i] = 0;
 	return (res);
 }
 
+char	**ft_split(char *str, char *charset)
+{
+	char	**res;
+	int		i;
+
+	res = (char **)malloc((ft_strlen(str) + 1) * sizeof(char *));
+	if (!res)
+		return (0);
+	if (!(*str))
+	{
+		res[0] = 0;
+		return (res);
+	}
+	i = 0;
+	while (*str)
+	{
+		if (!is_charset(*str, charset))
+		{
+			res[i] = create_string(str, charset);
+			str += ft_strlen(res[i++]);
+		}
+		else
+			str++;
+	}
+	res[i] = 0;
+	return (res);
+}
+
+/*
 #include <stdio.h>
 int	main(void)
 {
-	char **res = ft_split("hello,how are you?I'm good!!yeah", ", ?!");
-	int i = 0;
-	while (res[i])
+	int	i = 0;
+	char **str = ft_split("", "");
+	while (str[i] != 0)
 	{
-		printf("%s\n", res[i]);
+		printf("%s\n", str[i]);
+		free(str[i]);
 		i++;
 	}
 }
+*/

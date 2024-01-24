@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:31:09 by injung            #+#    #+#             */
-/*   Updated: 2024/01/21 14:51:56 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/23 16:33:31 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	*ft_range(int min, int max)
 	if (min >= max)
 		return (0);
 	ary = (int *)malloc((max - min) * 4);
+	if (!ary)
+		return (0);
 	i = 0;
 	while (min < max)
 	{
