@@ -6,13 +6,13 @@
 #    By: injung <injung@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/25 09:24:53 by injung            #+#    #+#              #
-#    Updated: 2024/01/25 15:19:57 by injung           ###   ########.fr        #
+#    Updated: 2024/01/25 18:00:19 by injung           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-SRC_DIR = ./src
+SRC_DIR = ./srcs
 INCLUDE = -Iincludes/
 
 SRCS = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
@@ -28,12 +28,12 @@ $(SRC_DIR)/%.o : $(SRC_DIR)/$(SRCS)
 $(TARGET) : $(OBJS)
 	ar rcs $(TARGET) $(OBJS)
 
-.PHONY: all clean fclean re
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(TARGET)
 
-re :
-	fclean all
+re : fclean all
+
+.PHONY: all clean fclean re
