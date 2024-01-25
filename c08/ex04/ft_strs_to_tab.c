@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:05:03 by injung            #+#    #+#             */
-/*   Updated: 2024/01/24 18:21:32 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/25 08:47:00 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	t_stock_str	*s;
 	int			i;
 
-	if (ac <= 0 || av == NULL)
-		return (NULL);
 	s = (t_stock_str *)malloc(sizeof(t_stock_str) * (ac + 1));
 	if (s == NULL)
 		return (NULL);
@@ -67,7 +65,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 #include <stdio.h>
 int	main(int argc, char **argv)
 {
-	t_stock_str *s = ft_strs_to_tab(argc, argv);
+	t_stock_str *s = ft_strs_to_tab(argc-1, argv+1);
 	while (s->str)
 	{
 		printf("%d %s %s\n", s->size, s->str, s->copy);

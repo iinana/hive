@@ -6,7 +6,7 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 10:39:47 by injung            #+#    #+#             */
-/*   Updated: 2024/01/24 20:03:30 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/25 08:59:38 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ int	check_sign(char **nbr)
 	int		sign;
 
 	sign = 0;
-	while (**nbr && ((**nbr == '+') || (**nbr == '_')))
+	while (**nbr && ((**nbr == '+') || (**nbr == '-')))
 	{
-		if (**nbr == '_')
+		if (**nbr == '-')
 			sign++;
 		++(*nbr);
 	}

@@ -1,14 +1,19 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    libft_creator.sh                                   :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: injung <injung@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/24 13:33:46 by injung            #+#    #+#              #
-#    Updated: 2024/01/25 13:47:55 by injung           ###   ########.fr        #
+#    Created: 2024/01/25 16:26:04 by injung            #+#    #+#              #
+#    Updated: 2024/01/25 16:27:41 by injung           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-cc -c -Wall -Wextra -Werror ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
-ar r libft.a ft_putchar.o ft_swap.o ft_putstr.o ft_strlen.o ft_strcmp.o
+TARGET= ft_display_file
+
+all: $(TARGET)
+	cc main.c -o $(TARGET)
+
+clean:
+

@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 11:49:55 by injung            #+#    #+#             */
-/*   Updated: 2024/01/25 15:46:01 by injung           ###   ########.fr       */
+/*   Created: 2024/01/24 11:49:02 by injung            #+#    #+#             */
+/*   Updated: 2024/01/24 13:25:27 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_strlen(char *str)
 {
-	int				i;
-	unsigned char	*us1;
-	unsigned char	*us2;
-
-	us1 = (unsigned char *)s1;
-	us2 = (unsigned char *)s2;
-	i = 0;
-	while (us1[i] && us2[i] && (us1[i] == us2[i]))
-		i++;
-	return (us1[i] - us2[i]);
+	int	len;
+	
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }

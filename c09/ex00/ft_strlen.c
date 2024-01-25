@@ -6,14 +6,14 @@
 /*   By: injung <injung@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 11:49:02 by injung            #+#    #+#             */
-/*   Updated: 2024/01/24 13:25:27 by injung           ###   ########.fr       */
+/*   Updated: 2024/01/25 15:46:25 by injung           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(char *str)
 {
 	int	len;
-	
+
 	len = 0;
 	while (str[len])
 		len++;
