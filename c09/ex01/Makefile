@@ -6,7 +6,7 @@
 #    By: injung <injung@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/25 09:24:53 by injung            #+#    #+#              #
-#    Updated: 2024/01/25 18:00:19 by injung           ###   ########.fr        #
+#    Updated: 2024/01/26 08:56:59 by injung           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,11 @@ TARGET = libft.a
 
 all : $(TARGET)
 
-$(SRC_DIR)/%.o : $(SRC_DIR)/$(SRCS)
-	$(CC) $(FLAGS) -c $(INCLUDE) $^
+$(SRC_DIR)/%.o : $(SRC_DIR)/%.c
+	$(CC) $(FLAGS) $(INCLUDE) -c $^ -o $@
 
 $(TARGET) : $(OBJS)
-	ar rcs $(TARGET) $(OBJS)
+	ar rcs $@ $^
 
 clean:
 	rm -f $(OBJS)
